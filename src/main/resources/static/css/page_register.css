@@ -1,0 +1,15 @@
+/* 注册页面 */
+.text_ori
+{
+    color: #6c757d;
+}
+.unqualified
+{
+    color:#dc3545;
+}
+#register_main
+{
+    width: 94%;
+    height: 94%;
+    margin: 2rem 3%;
+}

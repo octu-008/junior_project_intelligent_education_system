@@ -1,0 +1,78 @@
+/* 新增问题页面 */
+.head_img
+{
+    width: 35px;
+    height: 35px;
+}
+.text_ori
+{
+    color: #6c757d;
+}
+.judge_answer_panel
+{
+    display: none;
+}
+.single_choice_answer_panel
+{
+    display: none;
+}
+.multiple_choice_answer_panel
+{
+    display: none;
+}
+.text_ori
+{
+    color: #6c757d;
+}
+.unqualified
+{
+    color:#dc3545;
+}
+textarea
+{
+    resize: none;
+}
+.answer_text
+{
+    color: #1e7e34;
+}
+.question_new_form
+{
+    width: 90%;
+    height: 90%;
+    margin: 1rem 5%;
+}
+.single_answer_1
+{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.single_answer_2
+{
+    margin-top: 18px;
+}
+.single_answer_3
+{
+    margin-top: 17px;
+}
+.single_answer_4
+{
+    margin-top: 17px;
+}
+.multiple_answer_1
+{
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+.multiple_answer_2
+{
+    margin-top: 19px;
+}
+.multiple_answer_3
+{
+    margin-top: 19px;
+}
+.multiple_answer_4
+{
+    margin-top: 18px;
+}

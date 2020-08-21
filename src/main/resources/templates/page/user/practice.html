@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/bootstrap-4.1.3-dist/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/page_practice.css}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>题目练习</title>
+</head>
+<body>
+<header class="header d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">IEducation</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <span class="my-0 mr-2 font-weight-normal" th:text="${session.userOnline.username}"></span>
+        <span id="user_id" class="my-0 mr-2 font-weight-normal" th:text="${session.userOnline.id}"></span>
+        <img th:src="@{${session.userOnline.imgPath}}" class="rounded-circle head_img"/>
+    </nav>
+</header>
+
+    <div class="mt-2 mr-3 ml-3 mb-3" id="practice_outside">
+        <div class="mt-2 mr-5 ml-5 mb-1 pl-5 pr-5" id="practice_content">
+            <div id="practice_info" class="mt-2 mr-5 ml-5 pr-5 pl-5 bg-white border-bottom shadow info_radius">
+                <div class="row mt-1">
+                    <label style="font-size: 27px">练习信息</label><i class="fa fa-list-ul mt-2 ml-2"
+                                                                  style="font-size: 31px"></i>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-2 mb-2">
+                        <div class="row">
+                            <div class="col-4 bg-dark text-center info_lab">
+                                <i class="fa fa-dot-circle-o" style="color:#e9ecef"></i><label
+                                    class="ml-1 text-white mt-1">类型</label>
+                            </div>
+                            <div class="col-4 text-center" th:if="${type} == 'all'"><label id="practice_type" class="mt-1">全部课程</label></div>
+                        </div>
+                    </div>
+                    <div class="col-4 mt-2 mb-2">
+                        <div class="row">
+                            <div class="col-4 bg-dark text-center info_lab">
+                                <i class="fa fa-dot-circle-o" style="color:#e9ecef"></i><label
+                                    class="ml-1 text-white mt-1">数量</label>
+                            </div>
+                            <div class="col-4 text-center"><label id="practice_number" class="mt-1" th:text="${number}">10</label></div>
+                        </div>
+                    </div>
+                    <div class="col-4 mt-2 mb-2">
+                        <div class="row">
+                            <div class="col-4 bg-dark text-center info_lab">
+                                <i class="fa fa-dot-circle-o" style="color:#e9ecef"></i><label
+                                    class="ml-1 text-white mt-1">限时</label>
+                            </div>
+                            <div class="col-4 text-center" th:if="${time} == 'noLimit'"><label class="mt-1">不限时</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-2 mb-2">
+                        <div class="row">
+                            <div class="col-4 bg-dark text-center info_lab">
+                                <i class="fa fa-dot-circle-o" style="color:#e9ecef"></i><label
+                                    class="ml-1 text-white mt-1">分/题</label>
+                            </div>
+                            <div class="col-4 text-center"><label id="each_score" class="mt-1" th:text="${eachScore}">10</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="loading_question" class="mt-2 mr-5 ml-5 pr-5 pl-5 bg-white border-bottom shadow-sm info_radius">
+            <div class="row">
+                <div class="col text-center mt-3">
+                    <i class="fa fa-spinner fa-spin text-center" style="font-size: 27px"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center mb-3">
+                    <label>等待题目加载</label>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="mt-2 mb-3 pl-5 pr-5 mr-5 ml-5 text-center" id="submit_practice">
+            <hr>
+            <button id="submit_button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#submit_confirm_modal">提交</button>
+        </div>
+    </div>
+<!--确认提交弹窗-->
+<div class="modal fade" id="submit_confirm_modal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modal_header_message">确认提交</h5>
+            </div>
+            <div class="modal-body text-center">
+                <i id="modal_body_i" class="fa fa-spinner fa-spin text-center" style="font-size: 27px"></i>
+                <h5 class="mt-3" id="modal_body_message">*等待检测题目*</h5>
+            </div>
+            <div class="modal-footer">
+                <button id="submit_confirm_dismiss" type="button" class="btn btn-danger" data-dismiss="modal">等等，未确认</button>
+                <button id="submit_confirm_confirm" type="button" class="btn btn-success" disabled="disabled">是的，已确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--返回顶部按键-->
+<div id="practice_state" class="border-bottom shadow-sm practice_state" >
+    <i id="back_to_top" class="fa fa-eject" style="font-size: 45px"></i>
+</div>
+<!--返回上一页-->
+    <i id="back_to_previously" class="fa fa-arrow-circle-left" style="font-size: 40px"></i>
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap-4.1.3-dist/js/bootstrap.bundle.js}"></script>
+    <script type="text/javascript" th:src="@{/js/page_practice.js}"></script>
+</body>
+</html>

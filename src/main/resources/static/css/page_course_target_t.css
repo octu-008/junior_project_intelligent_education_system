@@ -1,0 +1,69 @@
+/* 目标课程管理页面 */
+html body
+{
+    width: 100%;
+    height: 100%;
+}
+.text_ori
+{
+    color: #6c757d;
+}
+.unqualified
+{
+    color:#dc3545;
+}
+.head_img
+{
+    width: 35px;
+    height: 35px;
+}
+#course_info
+{
+    width: 80%;
+    margin: 1rem 10%;
+}
+#back_div
+{
+    height: 100%;
+}
+.course_tittle
+{
+    margin-top: 30px;
+    margin-bottom: 27px;
+}
+label
+{
+    margin: 0 auto;
+}
+.course_info
+{
+    font-size: 21px;
+}
+.info_detail
+{
+    margin-bottom: 30px;
+}
+#course_info_detail
+{
+    height: 550px;
+}
+#update_course
+{
+    position: fixed;
+    top: 180px;
+    right: 10px;
+}
+.pt_info_1
+{
+    height: 270px;
+}
+.pt_info_2
+{
+    height: 350px;
+}
+.course_info_tittle
+{
+    margin-left: 13px;
+    margin-top: 5px;
+    margin-bottom: 27px;
+}

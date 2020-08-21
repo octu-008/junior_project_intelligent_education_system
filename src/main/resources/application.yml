@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /IEducation
+spring:
+  datasource:
+    name: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jee_08?serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 123456
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+mybatis:
+  type-aliases-package: com.atu1117.jee_final.pojo

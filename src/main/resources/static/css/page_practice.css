@@ -1,0 +1,83 @@
+/* 测试练习页面 */
+#practice_state
+{
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+#back_to_previously
+{
+    position: fixed;
+    top: 70px;
+    left: 10px;
+}
+.head_img
+{
+    width: 35px;
+    height: 35px;
+}
+.text_ori
+{
+    color: #6c757d;
+}
+.info_lab
+{
+    border-radius: 23px;
+}
+.info_radius
+{
+    border-radius: 7px;
+}
+.question_statement
+{
+    font-size: 20px;
+}
+.question_option
+{
+    margin-top: 3px;
+    font-size: 19px;
+}
+.float_mark
+{
+    margin-top: 7px;
+    float: right;
+}
+.in_mouse
+{
+    background-color: #343a40;
+    color: #fff;
+}
+.selected_option
+{
+    background-color: #28a745;
+    color: #fff;
+}
+.wrong_option
+{
+    background-color: #dc3545;
+    color: #fff;
+}
+.option_div
+{
+    border-radius: 7px;
+}
+.question_tittle_text
+{
+    font-size:17px;
+    background-color: #343a40;
+    color: #fff;
+    border-radius: 7px;
+    padding: 3px 7px;
+}
+.question_tittle
+{
+    padding-top: 7px;
+}
+.unqualified
+{
+    color:#dc3545;
+}
+.pass
+{
+    color:#28a745;
+}

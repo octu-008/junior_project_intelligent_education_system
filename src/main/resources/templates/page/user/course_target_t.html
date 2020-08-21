@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/bootstrap-4.1.3-dist/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/page_course_target_t.css}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>课程管理</title>
+</head>
+<body>
+<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">IEducation</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <span class="my-0 mr-2 font-weight-normal" th:text="${session.userOnline.username}"></span>
+        <span id="user_id" class="my-0 mr-2 font-weight-normal" th:text="${session.userOnline.id}"></span>
+        <img th:src="@{${session.userOnline.imgPath}}" class="rounded-circle head_img"/>
+    </nav>
+</header>
+<div id="back_div" class="my-2">
+    <div id="course_info">
+        <div class="course_tittle border-bottom">
+            <!--/*@thymesVar id="targetCourse" type="com.atu1117.jee_final.pojo.Course"*/-->
+            <h1 id="courseName" th:text="${targetCourse.name}"></h1>
+        </div>
+        <div class="row">
+            <div id="course_info_detail" class="col-3 course_info bg-white border-bottom shadow">
+                <div class="row info_detail text-center mt-lg-3">
+                    <div class="col">
+                        <label>ID:</label>
+                    </div>
+                    <div class="col">
+                        <!--/*@thymesVar id="targetCourse" type="com.atu1117.jee_final.pojo.Course"*/-->
+                        <label id="courseId" th:text="${targetCourse.id}"></label>
+                    </div>
+                </div>
+                <div class="px-lg-5"><hr></div>
+                <div class="row info_detail text-center">
+                    <div class="col">
+                        <label>所属院系:</label>
+                    </div>
+                    <div class="col">
+                        <!--/*@thymesVar id="targetCourse" type="com.atu1117.jee_final.pojo.Course"*/-->
+                        <label id="courseDepartment" th:text="${targetCourse.department}"></label>
+                    </div>
+                </div>
+                <div class="px-lg-5"><hr></div>
+                <div class="row info_detail text-center">
+                    <div class="col">
+                        <label>课程简介:</label>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row info_detail">
+                    <div class="col pl-lg-3">
+                        <!--/*@thymesVar id="targetCourse" type="com.atu1117.jee_final.pojo.Course"*/-->
+                        <label id="courseStatement" th:text="${targetCourse.statement}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row bg-white border-bottom border-left shadow pt_info_1">
+                    <div class="row">
+                        <div class="col">
+                            <div class="course_info_tittle border-bottom">
+                                <h3>学生管理(未完成)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-lg-5"><hr></div>
+                <div class="row bg-white border-bottom border-left shadow pt_info_2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="course_info_tittle border-bottom">
+                                <h3>详细管理(未完成)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="update_course" class="btn btn-primary" data-toggle="modal" data-target="#update_course_modal">
+        <i id="update_course_i" class="fa fa-gear" style="font-size: 23px"></i>
+        <label id="update_course_label" style="font-size: 20px;display: none">修改课程信息</label>
+    </button>
+
+</div>
+
+<!--弹窗-->
+<div class="modal fade" id="update_course_modal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                修改课程信息
+            </div>
+            <div class="modal-body">
+                <div class="form-group mt-2 pl-1 pr-1">
+                    <input id="updateName" type="text" class="form-control" aria-describedby="updateNameHelpMessage"
+                           placeholder="课程名称">
+                    <small id="updateNameHelpMessage" class="form-text text_ori">*请输入1-50字的课程名字</small>
+                </div>
+                <div class="form-group mt-2 pl-1 pr-1">
+                    <input id="updateDepartment" type="text" class="form-control" aria-describedby="updateDHelpMessage">
+                    <small id="updateDHelpMessage" class="form-text text_ori">*请输入1-36位的院系名称</small>
+                </div>
+                <div class="form-group mt-2 pl-1 pr-1">
+                    <textarea id="updateState" class="form-control" rows="3" aria-describedby="updateStateHelpMessage"
+                              placeholder="课程描述"></textarea>
+                    <small id="updateStateHelpMessage" class="form-text text_ori">*请输入关于课程的描述</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="updateOff" type="button" class="btn btn-danger" data-dismiss="modal">放弃修改</button>
+                <button id="updateConfirm" type="button" class="btn btn-primary">确认修改</button>
+                <small id="resultMessage" class="form-text text_ori"></small>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap-4.1.3-dist/js/bootstrap.bundle.js}"></script>
+<script type="text/javascript" th:src="@{/js/page_course_target_t.js}"></script>
+</body>
+</html>
